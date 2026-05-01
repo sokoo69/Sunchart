@@ -87,7 +87,7 @@ export default function Navbar() {
         ) : session ? (
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar hover:ring-2 ring-amber-100 transition-all cursor-pointer">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-orange-400 text-white font-bold flex items-center justify-center shadow-md">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-400 to-orange-400 text-white font-bold flex items-center justify-center shadow-md relative overflow-hidden">
                 {session.user.image ? (
                   <Image
                     src={session.user.image}

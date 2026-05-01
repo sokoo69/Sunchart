@@ -13,6 +13,8 @@ export default function MyProfilePage() {
   const { data: session, isPending } = authClient.useSession();
   const [loggingOut, setLoggingOut] = useState(false);
 
+  const [imageError, setImageError] = useState(false);
+
   useEffect(() => {
     if (!isPending && !session) {
       router.push("/login?redirect=/my-profile");
@@ -75,14 +77,15 @@ export default function MyProfilePage() {
             <div className="card bg-base-100 shadow-xl border border-base-200 text-center card-lift">
               <div className="card-body items-center">
                 <div className="avatar mb-4">
-                  <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    {user.image ? (
+                  <div className="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 relative overflow-hidden">
+                    {user.image && !imageError ? (
                       <Image
                         src={user.image}
                         alt={user.name || "User"}
                         width={96}
                         height={96}
                         className="object-cover"
+                        onError={() => setImageError(true)}
                       />
                     ) : (
                       <div className="w-full h-full bg-primary flex items-center justify-center">
