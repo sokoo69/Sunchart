@@ -1,4 +1,4 @@
-# ☀️ SunCart – Summer Essentials Store
+#  SunCart – Summer Essentials Store
 
 ## Project Name
 **SunCart**
