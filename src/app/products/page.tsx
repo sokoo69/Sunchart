@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useMemo } from "react";
 import ProductCard from "@/components/ProductCard";
 import products from "@/data/products";
@@ -58,15 +59,26 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen pb-20 bg-[#fcfcfd]">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 py-16 md:py-24 border-b border-amber-100 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 transform -translate-x-1/2 translate-y-1/2"></div>
+      <div className="relative overflow-hidden border-b border-amber-100 py-16 md:py-24">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1528701800489-20be9cbd7d6a?auto=format&fit=crop&w=1920&q=80"
+            alt="Summer collection background"
+            fill
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-white/72"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-amber-50/90 via-white/70 to-orange-50/90"></div>
+        </div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 transform -translate-x-1/2 translate-y-1/2"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 text-center animate__animated animate__fadeInUp">
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
-            Summer <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">Collection</span>
+            Summer <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-500 to-orange-500">Collection</span>
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Discover our handpicked selection of premium summer essentials. From stylish sunglasses to refreshing skincare, find everything you need.
           </p>
         </div>
