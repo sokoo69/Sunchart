@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
@@ -10,7 +10,6 @@ import { FcGoogle } from "react-icons/fc";
 import { Suspense } from "react";
 
 function LoginForm() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") || "/";
 
@@ -42,8 +41,7 @@ function LoginForm() {
       toast.error("Login failed.");
     } else if (data) {
       toast.success("Login successful!");
-      router.push(redirectTo);
-      router.refresh();
+      window.location.assign(redirectTo);
     }
   };
 

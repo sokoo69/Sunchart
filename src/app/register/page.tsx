@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
@@ -9,8 +8,6 @@ import { FiUser, FiMail, FiLock, FiLink, FiEye, FiEyeOff, FiSun, FiArrowRight } 
 import { FcGoogle } from "react-icons/fc";
 
 export default function RegisterPage() {
-  const router = useRouter();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [photoUrl, setPhotoUrl] = useState("");
@@ -47,7 +44,7 @@ export default function RegisterPage() {
       toast.error("Registration failed!");
     } else if (data) {
       toast.success("Account created successfully!");
-      router.push("/login");
+      window.location.assign("/");
     }
   };
 
