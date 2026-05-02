@@ -8,6 +8,8 @@ A modern summer eCommerce platform where users can explore and purchase seasonal
 
 ## Live URL
 
+https://sunchart.vercel.app
+
 
 ## Key Features
 *   **Authentication**: Secure login and registration using BetterAuth (Email/Password & Google OAuth).
